@@ -51,6 +51,7 @@ void largeur(arbre a);                              //Done
 void affiche_etage(arbre a, int etage);
 
 // Arbre binaire de recherche
+arbre Add(typeElem x, arbre a);
 booleen recherche_Elem(typeElem x, arbre a);        //
 arbre recherche_Noeud(typeElem x, arbre a);         //
 int max_bis(arbre a1);                              //
