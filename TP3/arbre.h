@@ -49,3 +49,11 @@ int min(arbre a);                                   //Done
 booleen egaux(arbre a1, arbre a2);                  //Done
 void largeur(arbre a);                              //Done
 void affiche_etage(arbre a, int etage);
+
+// Arbre binaire de recherche
+booleen recherche_Elem(typeElem x, arbre a);        //
+arbre recherche_Noeud(typeElem x, arbre a);         //
+int max_bis(arbre a1);                              //
+int min_bis(arbre a1);                              //
+void minMax(int min, int max, arbre a);             //
+booleen est_arb(arbre a);                           //
