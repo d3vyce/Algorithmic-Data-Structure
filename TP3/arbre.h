@@ -56,5 +56,5 @@ booleen recherche_Elem(typeElem x, arbre a);        //Done
 arbre recherche_Noeud(typeElem x, arbre a);         //Done
 int max_bis(arbre a1);                              //Done
 int min_bis(arbre a1);                              //Done
-void minMax(int *min, int *max, arbre a);           //
-booleen est_arb(arbre a);                           //
+void minMax(int *min, int *max, arbre a);           //Done
+booleen est_arb(arbre a);                           //Done

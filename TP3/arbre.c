@@ -326,7 +326,26 @@ void minMax(int *min, int *max, arbre a) {
 }
 
 booleen est_arb(arbre a) {
-
+    if(est_vide(a)) {
+        return vrai;
+    }
+    if(!est_vide(gauche(a))) {
+        if(racine(gauche(a)) > racine(a)) {
+            return faux;
+        }
+        if(!est_arb(gauche(a))) {
+            return faux;
+        }
+    }
+    if(!est_vide(droit(a))) {
+        if(racine(droit(a)) < racine(a)) {
+            return faux;
+        }
+        if(!est_arb(droit(a))) {
+            return faux;
+        }
+    }
+    return vrai;
 }
 
 int main(){
@@ -415,13 +434,14 @@ int main(){
     parcours2(d1);
     printf("\n");
 
-    printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('Z', d1));
+    printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('C', d1));
     arbre testbis = recherche_Noeud('C', d1);
     printf("C est-il présent dans l'arbre ? @ : %d \n", racine(testbis));
 
     int *min, *max;
     minMax(&min, &max, d1);
     printf("Minimum : %d / Maximum : %d \n", min, max);
+    printf("Est ce que l'arbre est un arbre binaire de recherche ? %d \n", est_arb(d1));
 
     return 0;
 }
