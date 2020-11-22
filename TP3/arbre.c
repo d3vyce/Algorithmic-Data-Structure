@@ -253,17 +253,22 @@ void affiche_etage(arbre a, int etage) {
 // Arbre binaire de recherche
 arbre Add(typeElem x, arbre a) {
     if(est_vide(a)) {
-        a = consa(x, arbre_vide, arbre_vide);
-        return a;
+        return consa(x, arbre_vide, arbre_vide);
     } else {
-        if(x > racine(a)) {
-            Add(x, droit(a));
-        } else {
-            if(x < racine(a)) {
+        if(x < racine(a)) {
+            if(est_vide(gauche(a))) {
+                a->g = consa(x, arbre_vide, arbre_vide);
+            } else {
                 Add(x, gauche(a));
             }
+        } else {
+            if(est_vide(droit(a))) {
+                a->d = consa(x, arbre_vide, arbre_vide);
+            } else {
+                Add(x, droit(a));
+            }
         }
-    }  
+    }
 }
 
 int main(){
@@ -338,11 +343,15 @@ int main(){
     printf("\n");
 
     //Arbre binaire de recherche
-    arbre d1;
+    arbre d1 = arbre_vide;
     char E1[7] = {'B', 'J', 'C', 'G', 'D', 'T', 'P'};
-    d1 = consa(E1[0], arbre_vide, arbre_vide);
-    d1 = Add(E1[1], d1);
-    arbre d2 = Add(E1[2], d1);
+    d1 = Add(E1[0], d1);
+    arbre d2 = Add(E1[1], d1);
+    arbre d3 = Add(E1[2], d1);
+    arbre d4 = Add(E1[3], d1);
+    arbre d5 = Add(E1[4], d1);
+    arbre d6 = Add(E1[5], d1);
+    arbre d7 = Add(E1[6], d1);
     
 
     parcours2(d1);
