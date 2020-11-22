@@ -284,6 +284,20 @@ booleen recherche_Elem(typeElem x, arbre a) {
     }
 }
 
+arbre recherche_Noeud(typeElem x, arbre a) {
+    if(est_vide(a)) {
+        return arbre_vide;
+    }
+    if (x == racine(a)) {
+        return a;
+    }
+    if (x < racine(a)) {
+        recherche_Noeud(x, gauche(a));
+    } else {
+        recherche_Noeud(x, droit(a));
+    }
+}
+
 int main(){
     
     int valeur_recherche;
@@ -371,6 +385,8 @@ int main(){
     printf("\n");
 
     printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('Z', d1));
+    arbre testbis = recherche_Noeud('C', d1);
+    printf("C est-il présent dans l'arbre ? @ : %d \n", racine(testbis));
 
     return 0;
 }
