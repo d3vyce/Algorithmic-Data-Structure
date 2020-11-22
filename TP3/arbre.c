@@ -320,6 +320,15 @@ int min_bis(arbre a1) {
     }
 }
 
+void minMax(int *min, int *max, arbre a) {
+    *min = min_bis(a);
+    *max = max_bis(a);
+}
+
+booleen est_arb(arbre a) {
+
+}
+
 int main(){
     
     int valeur_recherche;
@@ -409,7 +418,10 @@ int main(){
     printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('Z', d1));
     arbre testbis = recherche_Noeud('C', d1);
     printf("C est-il présent dans l'arbre ? @ : %d \n", racine(testbis));
-    printf("Minimum : %d / Maximum : %d \n", min_bis(d1), max_bis(d1));
+
+    int *min, *max;
+    minMax(&min, &max, d1);
+    printf("Minimum : %d / Maximum : %d \n", min, max);
 
     return 0;
 }
