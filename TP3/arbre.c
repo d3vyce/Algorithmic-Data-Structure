@@ -271,6 +271,19 @@ arbre Add(typeElem x, arbre a) {
     }
 }
 
+booleen recherche_Elem(typeElem x, arbre a) {
+    if(est_vide(a)) {
+        return faux;
+    }
+    if(x == racine(a)) {
+        return vrai;
+    } else if(x < racine(a)) {
+        recherche_Elem(x, gauche(a));
+    } else {
+        recherche_Elem(x, droit(a));
+    }
+}
+
 int main(){
     
     int valeur_recherche;
@@ -345,6 +358,7 @@ int main(){
     //Arbre binaire de recherche
     arbre d1 = arbre_vide;
     char E1[7] = {'B', 'J', 'C', 'G', 'D', 'T', 'P'};
+    
     d1 = Add(E1[0], d1);
     arbre d2 = Add(E1[1], d1);
     arbre d3 = Add(E1[2], d1);
@@ -353,9 +367,10 @@ int main(){
     arbre d6 = Add(E1[5], d1);
     arbre d7 = Add(E1[6], d1);
     
-
     parcours2(d1);
     printf("\n");
+
+    printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('Z', d1));
 
     return 0;
 }
