@@ -298,6 +298,28 @@ arbre recherche_Noeud(typeElem x, arbre a) {
     }
 }
 
+int max_bis(arbre a1) {
+    if(est_vide(a1)) {
+        return 0;
+    }
+    if(est_vide(droit(a1))) {
+        return a1->valeur;
+    } else {
+        max_bis(droit(a1));
+    }
+}
+
+int min_bis(arbre a1) {
+    if(est_vide(a1)) {
+        return 0;
+    }
+    if(est_vide(gauche(a1))) {
+        return a1->valeur;
+    } else {
+        min_bis(gauche(a1));
+    }
+}
+
 int main(){
     
     int valeur_recherche;
@@ -387,6 +409,7 @@ int main(){
     printf("C est-il présent dans l'arbre ? %d \n", recherche_Elem('Z', d1));
     arbre testbis = recherche_Noeud('C', d1);
     printf("C est-il présent dans l'arbre ? @ : %d \n", racine(testbis));
+    printf("Minimum : %d / Maximum : %d \n", min_bis(d1), max_bis(d1));
 
     return 0;
 }

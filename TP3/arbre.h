@@ -53,8 +53,8 @@ void affiche_etage(arbre a, int etage);
 // Arbre binaire de recherche
 arbre Add(typeElem x, arbre a);                     //Done
 booleen recherche_Elem(typeElem x, arbre a);        //Done
-arbre recherche_Noeud(typeElem x, arbre a);         //
-int max_bis(arbre a1);                              //
-int min_bis(arbre a1);                              //
+arbre recherche_Noeud(typeElem x, arbre a);         //Done
+int max_bis(arbre a1);                              //Done
+int min_bis(arbre a1);                              //Done
 void minMax(int min, int max, arbre a);             //
 booleen est_arb(arbre a);                           //
