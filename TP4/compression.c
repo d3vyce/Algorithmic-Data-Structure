@@ -8,7 +8,18 @@
 #define CARACTERES_MAX 128
 
 char* openFile(char* file) {
-    //TODO
+    FILE *fichier;
+    char* output = (char*)malloc(sizeof(char) * (CARACTERES_MAX));
+
+    fichier = fopen(file, "r");
+    if(fichier == NULL) {
+        printf("Erreur ouverture fichier. \n");
+        exit(-1);
+    }
+
+    fscanf(fichier, "%[^\n]", output);
+
+    return output;
 }
 
 char* writeFile(char* name, char* data) {
@@ -83,7 +94,7 @@ int main(int argc, char* argv[]) {
     }
     
     //char data[] = "AAAAAAAAAARRRRRRRROLLLLBBBBBUUTTTTTT";
-    char data[] = openFile(argv[1]);
+    char* data = openFile(argv[1]);
     char* compress = Compression(data, argv[2][0]);
     char* decompress = deCompression(compress, argv[2][0]);
 
