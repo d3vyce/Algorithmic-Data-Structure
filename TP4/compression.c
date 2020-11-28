@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//https://perso.esiee.fr/~djebalia/e4/TP4/Tp4-Comp-Hash.pdf
+
 #define TAILLE 20
 #define CARACTERES_MAX 128
 
