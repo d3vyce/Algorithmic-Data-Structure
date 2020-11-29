@@ -2,35 +2,41 @@
 
 annuaire * creer() {
     int i;
-    annuaire * new_annuaire;
-    new_annuaire = (annuaire*) malloc(sizeof(annuaire) * TAILLE);
-
     for(i=0; i < TAILLE; i++) {
-        new_annuaire[i] = NULL;
+        tab[i] = NULL;
     }
-
-    return new_annuaire;
+    return tab;
 }
 
 char * inserer(annuaire *an, char *nom, char *numero) {
-    //TODO
-}
+    int hash_key;
+    annuaire new = malloc(sizeof(annuaire));
+    new->nom = nom;
+    new->numero = numero;
 
-char * rech(annuaire *an, char *nom) {
-    //TODO
-}
+    hash_key = Hash(nom);
 
-void supprime(annuaire *an, char *nom) {
-    //TODO
-}
-
-void libre(annuaire *an) {
-    //TODO
+    if(an[hash_key] == NULL) {
+        an[hash_key] = new;
+        printf("Pas de colision (%s, hash : %d)\n", nom, hash_key);
+    } else {
+        annuaire temp = an[hash_key];
+        while(temp->next) {
+            temp = temp->next;
+        }
+        temp->next = new;
+        printf("Colision (%s, hash : %d)\n", nom, hash_key);
+    }
 }
 
 int main() {
     annuaire *test = creer();
-    
+
+    inserer(test, "nicolas sudres", "0673978130");
+    inserer(test, "pierre janaudy", "0643978130");
+    inserer(test, "leo corazza", "0643978130");
+
+    print(test);
 
     return 0;
 }
