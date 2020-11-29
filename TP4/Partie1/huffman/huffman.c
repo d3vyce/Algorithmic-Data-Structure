@@ -1,8 +1,6 @@
 #include "huffman.h"
 
-//https://github.com/sbksba/Huffman
 
-//Remplis le tab TabOcurrence avec le fichier Name
 int OccurenceData(char Name[]) {
     int i, result;
     unsigned char data;

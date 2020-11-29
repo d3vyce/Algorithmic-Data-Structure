@@ -69,7 +69,7 @@ void Tri(noeud * A[]) {
 }
 
 void decTobinary(int n, int bits) {
-    int binaryNum[32]; 
+    int binaryNum[32];
  
     int i = 0; 
     for(i=0; i < bits; i++) { 
@@ -78,7 +78,7 @@ void decTobinary(int n, int bits) {
     }
 
     for (int j = i - 1; j >= 0; j--) 
-        printf("%d", binaryNum[j]); 
+        printf("%d", binaryNum[j]);
 }
 
 void affiche(noeud *A[]) {
