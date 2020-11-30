@@ -9,9 +9,6 @@ typedef struct annuaire {
     struct annuaire *next;
 } *annuaire;
 
-struct annuaire *tab[TAILLE];
-
-
 int Hash(unsigned char *str) {
     int i = 1;
     unsigned long hash = 5381;
@@ -29,9 +26,9 @@ void print(annuaire *an) {
 
     for(i=0; i < TAILLE; i++) {
         annuaire temp = an[i];
-        printf("chaine[%d] ->", i);
+        printf("chaine[%d] -> ", i);
         while(temp) {
-            printf("%s ->", temp->nom);
+            printf("%s (%s) -> ", temp->nom, temp->numero);
             temp = temp->next;
         }
         printf("NULL \n");
