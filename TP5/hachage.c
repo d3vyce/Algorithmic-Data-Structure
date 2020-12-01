@@ -21,8 +21,6 @@ char * inserer(annuaire *an, char *nom, char *numero) {
 
     if(an[hash_key] == NULL) {
         an[hash_key] = new;
-        printf("Pas de colision (%s, hash : %d)\n", nom, hash_key);
-
         return NULL;
     } else {
         annuaire temp = an[hash_key];
@@ -30,7 +28,6 @@ char * inserer(annuaire *an, char *nom, char *numero) {
             temp = temp->next;
         }
         temp->next = new;
-        printf("Colision (%s, hash : %d)\n", nom, hash_key);
     }
 }
 
@@ -50,11 +47,47 @@ char * rech(annuaire *an, char *nom) {
 }
 
 void supprime(annuaire *an, char *nom) {
-    //TODO
+    int hash_key = Hash(nom);
+
+    if(an[hash_key] != NULL) {
+        annuaire temp = an[hash_key], n, nPlus1;
+
+        if(temp->nom == nom) {
+            n = temp;
+            an[hash_key] = temp->next;
+            free(n);
+        } else {
+            n = temp;
+            nPlus1 = temp->next;
+
+            while(n != NULL) {
+                if(nPlus1->nom == nom) {
+                    n->next = nPlus1->next;
+                    free(nPlus1);
+                    return;
+                }
+                n = nPlus1;
+                nPlus1 = nPlus1->next;
+            }
+        }
+    }
+    return;
 }
 
 void libere(annuaire *an) {
-    //TODO
+    int i;
+    annuaire temp, n;
+    
+    for(i=0; i < TAILLE; i++) {
+        temp = an[i];
+        while(an[i]) {
+            n = temp;
+            an[i] = temp->next;
+            free(n);
+        }
+    }
+
+    free(an);
 }
 
 int main() {
@@ -65,8 +98,15 @@ int main() {
     inserer(annu, "pierre janaudy", "0666666");
     inserer(annu, "leo corazza", "06555555");
 
+    printf("Annuaire :\n");
     print(annu);
-    printf("recherche de %s : %s \n", test, rech(annu, test));
 
+    printf("\nRecherche de %s : %s \n", test, rech(annu, test));
+
+    printf("\nAnnuaire après suppression de %s:\n", test);
+    supprime(annu, test);
+    print(annu);
+
+    libere(annu);
     return 0;
 }
