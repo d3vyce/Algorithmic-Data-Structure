@@ -1,6 +1,7 @@
 # Algorithmique-Structure-de-donnes
 
-### TP1 : Algorithmes simples / Récursivité / Pointeurs et structures
-### TP2 : Listes (type abstrait)
-### TP3 : Arbres binaires
-### TP4 : Compression et Hachage
+### TP1 : Simple algorithms / Recursion / Pointers and structures
+### TP2 : Lists (type abstrait)
+### TP3 : Binary trees
+### TP4 : Compression
+### TP5 : Hashing
