@@ -1,4 +1,4 @@
-# Algorithmique-Structure-de-donnes
+# Algorithmic-Data-Structure
 
 ### TP1 : Simple algorithms / Recursion / Pointers and structures
 ### TP2 : Lists (type abstrait)
